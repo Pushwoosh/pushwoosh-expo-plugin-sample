@@ -9,7 +9,7 @@ build/
 
 # Distribution directory (uncomment if you build for bare)
 ios/
-android/
+#android/
 
 # Environment files
 *.env
