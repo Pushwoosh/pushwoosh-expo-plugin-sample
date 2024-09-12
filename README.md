@@ -1,5 +1,9 @@
 # Pushwoosh Expo Sample app 👋
+<div align="left">
+    <img src="assets/screencast.gif" alt="Pushwoosh Expo Sample app" width="300">
+</div>
 
+---
 ## 📖 Overview
 This sample app demonstrates the integration of the Pushwoosh Expo plugin and tests notification delivery on iOS and Android platforms.<br>
 It is designed to showcase the capabilities of Pushwoosh without the need for extensive setup.
