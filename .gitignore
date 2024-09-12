@@ -8,8 +8,8 @@ node_modules/
 build/
 
 # Distribution directory (uncomment if you build for bare)
-# ios/
-# android/
+ios/
+android/
 
 # Environment files
 *.env
