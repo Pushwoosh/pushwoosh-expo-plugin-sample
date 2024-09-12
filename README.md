@@ -74,7 +74,7 @@ iOS:
 
    The applicaton is configured to work with Pushwoosh sample project "7714C-93EB7".
    ### To configure the app with your own Pushwoosh project:
-   Modify the initialization parameters in app/_layout.tsx with your Pushwoosh APP_ID and Firebase SENDER_ID.
+   Modify the initialization parameters in [app/_layout.tsx](https://github.com/Ankononenko/pushwoosh-expo-sample/blob/develop/app/_layout.tsx#L85) with your Pushwoosh APP_ID and Firebase SENDER_ID.
    ```
    Pushwoosh.init({ pw_appid: "APP_ID", project_number: "SENDER_ID" });
    ```
