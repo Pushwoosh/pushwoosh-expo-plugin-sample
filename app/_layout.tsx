@@ -82,7 +82,7 @@ export default function RootLayout() {
             *    \   /
             *     \_/
             */
-          Pushwoosh.init({ pw_appid: "7714C-93EB7", project_number: "843884467752" });
+          Pushwoosh.init({ pw_appid: "YOUR_APP_CODE", project_number: "YOUR_FCM_SENDER_ID" });
           pushwooshInitialized = true;
            /**
             * To register for push notifications, call the following method:
