@@ -23,6 +23,11 @@ It is designed to showcase the capabilities of Pushwoosh without the need for ex
 
 ## 🛠️ Get started
 ### Prerequisites:
+- Project created in [Firebase console](https://console.firebase.google.com/)
+- [Encryption key and key ID from Apple](https://docs.pushwoosh.com/platform-docs/first-steps/start-with-your-project/configure-project/ios-configuration/ios-token-based-configuration)
+- Application in [Pushwoosh control panel](https://sso.pushwoosh.com/login) with Android and iOS platforms configured.
+[Android Firebase configuration](https://docs.pushwoosh.com/platform-docs/first-steps/start-with-your-project/configure-project/configure-android-platform)
+[iOS token-based configuration](https://docs.pushwoosh.com/platform-docs/first-steps/start-with-your-project/configure-project/ios-configuration/ios-token-based-configuration)
 - Node.js and npm (or yarn)
 - Expo CLI
 - Expo Go app for mobile devices
@@ -35,8 +40,32 @@ It is designed to showcase the capabilities of Pushwoosh without the need for ex
 ```bash
    npm install
 ```
+2. Connect your app to Pushwoosh and Firebase
 
-2. Start the app with the test device connected to your machine
+Enter the app ID from Pushwoosh control panel and FCM sender ID:
+
+[L85 pushwoosh-expo-sample/app/_layout.tsx](https://github.com/Ankononenko/pushwoosh-expo-sample/blob/develop/app/_layout.tsx#L85):
+![image](https://github.com/user-attachments/assets/b1e085ab-3fc2-4125-8dd6-8d56f0b451c9)
+
+Place the google-services.json in the root directory of the app:
+
+![image](https://github.com/user-attachments/assets/f81d1995-6eea-48d5-9422-2e46e5844f9c)
+
+3. Prebuild
+
+```
+npx expo prebuild
+```
+
+4. iOS platform only: ensure that the push notification capability is enabled in your project, and that "Remote Notifications" is selected under "Background Modes":
+   
+![image](https://github.com/user-attachments/assets/636a36e3-c7e9-4401-b58b-d4d3a4fc2bf9)
+
+Sign the app:
+
+![image](https://github.com/user-attachments/assets/f361bfd6-ad53-4736-bd86-8aabf0efbf15)
+
+4. Start the app with the test device connected to your machine
 
 Android:
 ```bash
@@ -47,41 +76,7 @@ iOS:
     npx expo run:ios
 ```
 
-3. Allow the application to send notifications
-4. Send a test notification (Android only):
-   1. Get HWID by tapping the "Get HWID" button"
-   2. Use curl to send a notification
-   ```
-   curl -X POST \
-        https://api.pushwoosh.com/json/1.3/createMessage \
-        -H 'Content-Type: application/json' \
-        -d '{
-        "request": {
-          "application": "7714C-93EB7",
-          "auth": "uYxkspQWrVvrBi80yFea5B7YMJkKNhFVd0Hg8r3FeBk6k4O8hLTAKS4O8Otbji0TkYmcjhVYWiYrV7VuXz2E",
-          "notifications": [
-            {
-              "send_date": "now",
-              "content": "Test notification",
-              "devices": [
-                "HWID_OF_YOUR_DEVICE"
-              ]
-            }
-          ]
-        }
-      }'
-   ```
-
-   The applicaton is configured to work with Pushwoosh sample project "7714C-93EB7".
-   ### To configure the app with your own Pushwoosh project:
-   Modify the initialization parameters in [app/_layout.tsx](https://github.com/Ankononenko/pushwoosh-expo-sample/blob/develop/app/_layout.tsx#L85) with your Pushwoosh APP_ID and Firebase SENDER_ID.
-   ```
-   Pushwoosh.init({ pw_appid: "APP_ID", project_number: "SENDER_ID" });
-   ```
-   ![image](https://github.com/user-attachments/assets/7b10d018-d493-4099-b323-cd25a2e7380b)
+5. Allow the application to send notifications
+4. Send a test notification.
    
-   Replace the google-services.json file in the root of the sample project and rebuild the Android platform.
-
-   The guide for SDK integration is available on [Pushwoosh website](https://docs.pushwoosh.com/platform-docs/pushwoosh-sdk/cross-platform-frameworks/expo/integrating-expo-plugin).
-   
-   If you have any questions you can contact us at help@pushwoosh.com 🤝
+If you have any questions, feel free to contact us at help@pushwoosh.com or open an issue in this repository 🤝
