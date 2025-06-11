@@ -35,7 +35,13 @@
         "pushwoosh-expo-plugin",
         {
           "mode": "development",
-          "showForegroundPush": false
+          "showForegroundPush": false,
+          "ios": {
+            "PW_API_TOKEN": "__YOUR_PUSHWOOSH_DEVICE_API_TOKEN__"
+          },
+          "android": {
+            "apiToken": "__YOUR_PUSHWOOSH_DEVICE_API_TOKEN__"
+          }
         }
       ]
     ],
